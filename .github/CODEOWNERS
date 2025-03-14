@@ -8,5 +8,5 @@
 .gitignore @dklee98
 .pre-commit-config.yaml@dklee98
 LICENSE @dklee98
-Makefile @dklee @dklee98
+Makefile @dklee98
 .github/PULL_REQUEST_TEMPLATE.md @dklee98 @anahrendra
