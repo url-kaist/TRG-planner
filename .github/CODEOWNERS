@@ -1,9 +1,9 @@
-.github @dklee98
-config @dklee98
-cpp @dklee98
-pipelines @dklee98
-python @dklee98
-shellscripts @dklee98
+/.github @dklee98
+/config @dklee98
+/cpp @dklee98
+/pipelines @dklee98
+/python @dklee98
+/shellscripts @dklee98
 .clang-format @dklee98
 .gitignore @dklee98
 .pre-commit-config.yaml@dklee98
