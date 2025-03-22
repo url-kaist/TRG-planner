@@ -36,4 +36,7 @@ dependencies = [
   "open3d",
 ]
 
+[project.scripts]
+trg-py  = "examples.run_trg_planner:main"
+
 [tool.scikit-build]
