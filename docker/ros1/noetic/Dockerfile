@@ -36,7 +36,7 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 SHELL ["conda", "run", "-n", "trg-env", "/bin/bash", "-c"]
 
 # Install pybind dependencies
-RUN pip install --upgrade pip setuptools wheel scikit-build-core ninja cmake build
+RUN pip install --upgrade pip setuptools wheel scikit-build-core ninja cmake build numpy open3d
 
 # Install git
 RUN apt-get update && \
