@@ -35,7 +35,7 @@ ______________________________________________________________________
 
 ## 📦 Installation
 
-## 🐳  Docker
+## 🐳 Docker
 
 We provide a docker installation script so that you can directly install TRG in any machine. Simply do the following, and you're good to go to install TRG anywher!
 
