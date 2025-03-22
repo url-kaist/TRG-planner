@@ -35,8 +35,12 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 # Switch to using Conda env for subsequent RUNs
 SHELL ["conda", "run", "-n", "trg-env", "/bin/bash", "-c"]
 
+# Install TRG ROS1 dependencies
+RUN apt-get update && \
+    apt-get install ros-noetic-grid-map
+
 # Install pybind dependencies
-RUN pip install --upgrade pip setuptools wheel scikit-build-core ninja cmake build numpy open3d
+RUN pip install --upgrade pip empy catkin_pkg setuptools wheel scikit-build-core ninja cmake build numpy open3d
 
 # Install git
 RUN apt-get update && \
