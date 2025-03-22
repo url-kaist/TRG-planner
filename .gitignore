@@ -408,4 +408,7 @@ AMENT_IGNORE
 .history
 .ionide
 
+# Catkin built files
+.catkin_tools
+
 # End of https://www.toptal.com/developers/gitignore/api/c++,python,visualstudiocode,pycharm,ros,ros2
