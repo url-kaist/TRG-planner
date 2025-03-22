@@ -16,8 +16,6 @@ services:
       - HOST_HOME=${HOME}
     volumes:
       - ../../../..:/home/src
-      - ~/.netrc:/root/.netrc
-      - ~/.config/wandb:/root/.config/wandb
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.Xauthority
     working_dir: /home
