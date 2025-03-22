@@ -67,6 +67,12 @@ Run `examples/run_trg_planner.py` following template:
 python3 python/examples/run_trg_planner.py --map indoor
 ```
 
+or simply
+
+```bash
+trg-py --map indoor
+```
+
 #### Result
 
 <details>
