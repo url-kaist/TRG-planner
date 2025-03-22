@@ -35,6 +35,15 @@ ______________________________________________________________________
 
 ## 📦 Installation
 
+## 🐳  Docker
+
+We provide a docker installation script so that you can directly install TRG in any machine. Simply do the following, and you're good to go to install TRG anywher!
+
+```bash
+bash docker/build.sh
+bash docker/run_compose.sh
+```
+
 ### 💻 C++ (Essential)
 
 Run the command below.
