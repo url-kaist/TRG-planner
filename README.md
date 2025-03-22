@@ -42,7 +42,7 @@ We provide a docker installation script so that you can directly install TRG in 
 
 ```bash
 bash docker/build.sh
-bash docker/compose.sh
+bash docker/compose_up.sh
 ```
 
 ### 💻 C++ (Essential)
