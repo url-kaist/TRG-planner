@@ -1,6 +1,6 @@
 version: '3.9'
 services:
-  trg:
+  trg-noetic:
     image: trg:noetic
     runtime: nvidia
     stdin_open: true # equivalent to -it
