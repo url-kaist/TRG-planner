@@ -1,0 +1,21 @@
+version: '3.9'
+services:
+  trg-noetic:
+    image: trg:noetic
+    runtime: nvidia
+    stdin_open: true # equivalent to -it
+    tty: true
+    network_mode: host
+    environment:
+      - PROJECT_NAME=${PROJECT_NAME}
+      - DISPLAY=${DISPLAY}
+      - XAUTHORITY=/tmp/.Xauthority
+      - QT_X11_NO_MITSHM=1
+      - TERM=xterm-256color
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - HOST_HOME=${HOME}
+    volumes:
+      - ../../../..:/home/src
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.Xauthority
+    working_dir: /home

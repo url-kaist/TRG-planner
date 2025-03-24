@@ -4,6 +4,7 @@
 /pipelines @dklee98
 /python @dklee98
 /shellscripts @dklee98
+/docker @anahrendra @dklee98
 .clang-format @dklee98
 .gitignore @dklee98
 .pre-commit-config.yaml @dklee98

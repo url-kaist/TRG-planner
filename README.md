@@ -5,6 +5,7 @@
   <a href="https://github.com/url-kaist/TRG-planner"><img src="https://img.shields.io/badge/ROS1-Noetic-blue" /></a>
   <a href="https://github.com/url-kaist/TRG-planner"><img src="https://img.shields.io/badge/ROS2-Humble-blue" /></a>
   <a href="https://github.com/url-kaist/TRG-planner"><img src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black" /></a>
+  <a href="https://github.com/url-kaist/TRG-planner"><img src="https://img.shields.io/badge/docker-257bd6?&logo=docker&logoColor=white" /></a>
   <br/>
 <a href="https://ieeexplore.ieee.org/document/10819646"><img src="https://img.shields.io/badge/RA--L-10819646-004088.svg"/></a>
 <a href="https://arxiv.org/abs/2501.01806"><img src="https://img.shields.io/badge/arXiv-2501.01806-b33737.svg"/></a>
@@ -34,6 +35,15 @@ ______________________________________________________________________
 </details>
 
 ## 📦 Installation
+
+### 🐳 Docker
+
+We provide a docker installation script so that you can directly install TRG in any machine. Simply do the following, and you're good to go to install TRG anywher!
+
+```bash
+bash docker/build.sh
+bash docker/compose_up.sh
+```
 
 ### 💻 C++ (Essential)
 
