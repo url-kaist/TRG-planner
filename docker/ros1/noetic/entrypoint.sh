@@ -40,7 +40,7 @@ bright_cyan="\[\033[1;36m\]"
 bright_white="\[\033[1;37m\]"
 
 # Prompt format with conda and git branch
-PS1="🐳 (${bright_magenta}$PROJECT_NAME-$ROS_DISTRO)\n"
+PS1="🐳 (${bright_magenta}$PROJECT_NAME)\n"
 PS1+="${bright_green}\u${reset}"                   # user
 PS1+=":${bright_blue}\w${reset}"                   # path
 PS1+='$( __git_ps1 " ['"${bright_cyan}"'%s'"${reset}"']" )'  # branch

@@ -16,7 +16,7 @@ while [[ "$#" -gt 0 ]]; do
       shift 2
       ;;
     --ros)
-      ROS_DISTRO="$2"
+      ROS_VERSION_NAME="$2"
       shift 2
       ;;
     *)
@@ -38,10 +38,13 @@ xhost +local:docker
 
 # ===== Run docker-compose =====
 # Based on the ROS distro, run the appropriate docker-compose file
-if [ "$ROS_DISTRO" == "noetic" ]; then
+if [ "$ROS_VERSION_NAME" == "noetic" ]; then
     docker compose -f docker/ros1/noetic/docker-compose.yml -p "$PROJECT_NAME" up
-elif [ "$ROS_DISTRO" == "humble" ]; then
+elif [ "$ROS_VERSION_NAME" == "humble" ]; then
     docker compose -f docker/ros2/humble/docker-compose.yml -p "$PROJECT_NAME" up
+else
+    echo "Unknown ROS version: $ROS_VERSION_NAME"
+    exit 1
 fi
 
 # ===== Cleanup =====

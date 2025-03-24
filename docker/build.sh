@@ -7,7 +7,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 while [[ "$#" -gt 0 ]]; do
   case $1 in
     --ros)
-      ROS_DISTRO="$2"
+      ROS_VERSION_NAME="$2"
       shift 2
       ;;
     *)
@@ -18,11 +18,14 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 # change to the directory of the dockerfile depending on the distro
-if [ "$ROS_DISTRO" == "noetic" ]; then
+if [ "$ROS_VERSION_NAME" == "noetic" ]; then
     cd $DIR/../docker/ros1/noetic
-elif [ "$ROS_DISTRO" == "humble" ]; then
+elif [ "$ROS_VERSION_NAME" == "humble" ]; then
     cd $DIR/../docker/ros2/humble
+else
+    echo "Unknown ROS version: $ROS_VERSION_NAME"
+    exit 1
 fi
 
 # build the docker image
-docker build -t trg:$ROS_DISTRO .
+docker build -t trg:$ROS_VERSION_NAME .
