@@ -38,11 +38,24 @@ ______________________________________________________________________
 
 ### 🐳 Docker
 
-We provide a docker installation script so that you can directly install TRG in any machine. Simply do the following, and you're good to go to install TRG anywher!
+We provide a docker installation script so that you can directly install TRG in any machine. Simply do the following, and you're good to go to install TRG anywhere!
 
 ```bash
+<<<<<<< HEAD
 bash docker/build.sh
 bash docker/compose_up.sh
+=======
+# Select ros version <noetic | humble>
+bash docker/build.sh --ros <noetic|humble>
+bash docker/compose_up.sh --display 0 --project base --ros <noetic|humble>
+```
+
+After run `compose_up.sh`, open new terminal and execute the container:
+
+```bash
+docker exec -it ${PROJECT_NAME}-trg-${ROS_VERSION_NAME}-${container_number} bash
+docker exec -it base-trg-<noetic|humble>-1 bash
+>>>>>>> b4b00f2... 🐳 fixed docker build error - #6
 ```
 
 ### 💻 C++ (Essential)

@@ -1,4 +1,4 @@
-FROM ros:humble-ros-core-jammy
+FROM osrf/ros:humble-desktop-full-jammy
 
 # Set the working directory
 WORKDIR /home
@@ -15,26 +15,10 @@ RUN apt-get update && apt-get install -y \
     curl \
     wget \
     python3-colcon-common-extensions \
-    python3-colcon-mixin \
+    python3-wheel \
     python3-rosdep \
     python3-vcstool \
-    bzip2 \
-    && apt-get update && apt-get install -y ros-humble-desktop \
-    && rm -rf /var/lib/apt/lists/*
-
-# setup colcon mixin and metadata
-RUN colcon mixin add default \
-      https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml && \
-    colcon mixin update && \
-    colcon metadata add default \
-      https://raw.githubusercontent.com/colcon/colcon-metadata-repository/master/index.yaml && \
-    colcon metadata update
-
-# Install ROS2 dependencies
-RUN apt-get update && apt-get install -y \
-    ros-humble-navigation2 \
-    ros-humble-nav2-bringup \
-    libyaml-cpp-dev \
+    python3-pip \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Miniconda
@@ -49,7 +33,7 @@ SHELL ["conda", "run", "-n", "trg-env", "/bin/bash", "-c"]
 
 # Install pybind and Python dependencies
 RUN pip install --upgrade pip empy setuptools wheel \
-    scikit-build-core ninja cmake build numpy open3d
+    scikit-build-core ninja cmake build numpy open3d catkin_pkg
 
 # Install git
 RUN apt-get update && \
@@ -62,4 +46,5 @@ RUN chmod +x /entrypoint.sh
 
 # Inject conda activation into .bashrc
 RUN echo 'source /opt/conda/etc/profile.d/conda.sh && conda activate trg-env' >> /root/.bashrc
+RUN echo 'source /opt/ros/humble/setup.bash' >> /root/.bashrc
 ENTRYPOINT ["/entrypoint.sh"]

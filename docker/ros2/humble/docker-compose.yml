@@ -1,6 +1,5 @@
-version: '3.9'
 services:
-  trg:
+  trg-humble:
     image: trg:humble
     runtime: nvidia
     stdin_open: true # equivalent to -it
@@ -15,7 +14,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - HOST_HOME=${HOME}
     volumes:
-      - ../../../..:/home/src
+      - ../../..:/home/src/TRG-planner
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ${XAUTHORITY:-$HOME/.Xauthority}:/tmp/.Xauthority
-    working_dir: /home
+    working_dir: /home/src/TRG-planner
