@@ -15,6 +15,10 @@ while [[ "$#" -gt 0 ]]; do
       PROJECT_NAME="$2"
       shift 2
       ;;
+    --ros)
+      ROS_DISTRO="$2"
+      shift 2
+      ;;
     *)
       echo "Unknown parameter: $1"
       exit 1
@@ -33,9 +37,12 @@ echo "[*] XAUTHORITY=$XAUTHORITY"
 xhost +local:docker
 
 # ===== Run docker-compose =====
-docker compose -f docker/ros1/noetic/docker-compose.yml -p "$PROJECT_NAME" up
-
-
+# Based on the ROS distro, run the appropriate docker-compose file
+if [ "$ROS_DISTRO" == "noetic" ]; then
+    docker compose -f docker/ros1/noetic/docker-compose.yml -p "$PROJECT_NAME" up
+elif [ "$ROS_DISTRO" == "humble" ]; then
+    docker compose -f docker/ros2/humble/docker-compose.yml -p "$PROJECT_NAME" up
+fi
 
 # ===== Cleanup =====
 xhost -local:docker
